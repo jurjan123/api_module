@@ -6,6 +6,7 @@ use App\Models\Country;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponseHeader;
+use App\Http\Resources\CustomerResource;
 
 class CustomerController extends Controller
 {
@@ -15,9 +16,8 @@ class CustomerController extends Controller
      */
     public function index()
     {
-        
-        return $this->sendResponse(Employees::all()->toArray());
-      
+        //$filter = new CustomerQuery();
+        return $this->sendResponse(Employees::paginate(15)->toArray());
     }
 
     /**
@@ -31,9 +31,10 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
-        //
+        //return $this->sendResponse(Employees::find($id)->toArray());
+        return new CustomerResource(Employees::find($id));
     }
 
     /**
