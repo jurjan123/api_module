@@ -14,7 +14,7 @@ trait ApiResponseHeader
     ): JsonResponse
     {
         $response = [
-            "api_version" => env("API_VERSON"),
+            "api_version" => env("API_VERSION"),
             "description" => "HRM API Module 21",
             "status" => $status_code,
             "message" => $message,

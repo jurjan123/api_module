@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(["prefix" => "v1", "namespace" => "App\Http\Controllers", ], function(){
-    Route::apiResource("customers", CustomerController::class);
+    Route::apiResource("employees", EmployeeController::class);
+    Route::apiResource("countries", CountryController::class);
+    Route::apiResource("jobs", JobController::class);
+    Route::apiResource("locations", LocationController::class);
+    Route::apiResource("departments", DepartmentController::class);
 });
    
 

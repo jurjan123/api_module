@@ -6,18 +6,20 @@ use App\Models\Country;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponseHeader;
-use App\Http\Resources\CustomerResource;
+use App\Http\Resources\EmployeeResource;
+use App\Http\Resources\EmployeeCollection;
 
-class CustomerController extends Controller
+class EmployeeController extends Controller
 {
     use ApiResponseHeader;
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //$filter = new CustomerQuery();
-        return $this->sendResponse(Employees::paginate(15)->toArray());
+        $filter = new CustomerQuery();
+        $queryItems = $filter->transform($request);
+        return new EmployeeCollection(Employees::paginate(15));
     }
 
     /**
@@ -34,7 +36,7 @@ class CustomerController extends Controller
     public function show(int $id)
     {
         //return $this->sendResponse(Employees::find($id)->toArray());
-        return new CustomerResource(Employees::find($id));
+        return new EmployeeResource(Employees::find($id));
     }
 
     /**

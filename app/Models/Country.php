@@ -16,4 +16,8 @@ class Country extends Model
         "country_name",
         "region_id"
     ];
+
+    public function regions(){
+        return $this->hasOne(Region::class);
+    }
 }
