@@ -1,22 +1,28 @@
 <?php
 
-namespace App\Services\V1;
+namespace App\Http\Services;
 
 use Illuminate\Http\Request;
 
-class EmployeeQuery {
+class EmployeeFilter {
     protected $safeParms = [
-        "name" => ["eq"],
-        "type" => ["eq"],
+        "id" => ["eq"],
+        "firstName" => ["eq"],
+        "lastName" => ["eq"],
         "email" => ["eq"],
-        "address" => ["eq"],
-        "city" => ["eq"],
-        "state" => ["eq"],
-        "postalCode" => ["eq", "gt", "lt"],
+        "phoneNumber" => ["eq"],
+        "hireDate" => ["eq"],
+        "salary" => ["eq"],
+        "job_id" => ["eq"],
+        "manager_id" => ["eq"],
+        "department_id" => ["eq"]
     ];
 
     protected $columnMap = [
-        "postalCode" => "postal_code"
+        "firstName" => "first_name",
+        "lastName" => "last_name",
+        "phoneNumber" => "phone_number",
+        "hireDate" => "hire_date"
     ];
 
     protected $operatorMap = [

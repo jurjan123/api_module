@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Country;
+use Illuminate\Http\Request;
+use App\Traits\ApiResponseHeader;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 use App\Http\Resources\CountryResource;
 use App\Http\Resources\CountryRegionCollection;
-use App\Traits\ApiResponseHeader;
+
 class CountryController extends Controller
 {
     use ApiResponseHeader;
@@ -18,7 +20,7 @@ class CountryController extends Controller
     {
 
         $countries = Country::with('regions')->paginate(15);
-      
+        
         return new CountryRegionCollection($countries);
 
     }

@@ -6,11 +6,10 @@ use App\Models\Country;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponseHeader;
-use App\Services\V1\CustomerQuery;
-use App\Services\V1\EmployeeQuery;
-use Illuminate\Support\Facades\DB;
+
 use App\Http\Resources\EmployeeResource;
 use App\Http\Resources\EmployeeCollection;
+use App\Http\Services\EmployeeFilter;
 
 class EmployeeController extends Controller
 {
@@ -20,15 +19,13 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        $filter = new EmployeeQuery();
+        $filter = new EmployeeFilter();
         $queryItems = $filter->transform($request);
-
         if(count($queryItems) == 0){
-            return new EmployeeCollection(Employees::paginate());
+            return new EmployeeCollection(Employees::paginate(15));
         } else{
             return new EmployeeCollection(Employees::where($queryItems)->paginate(15));
         }
-        
     }
 
     /**
