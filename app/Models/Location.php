@@ -20,6 +20,6 @@ class Location extends Model
     ];
 
     public function countries(){
-        return $this->hasOne(Country::class);
+        return $this->belongsTo(Country::class, "country_id");
     }
 }

@@ -13,9 +13,9 @@ class Region extends Model
 
     protected $fillable = [
         "region_name"
-    ]
+    ];
     
     public function countries(){
-        return $this->belongsto(Country::class);
+        return $this->hasMany(Country::class);
     }
 }

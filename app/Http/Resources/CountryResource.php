@@ -18,7 +18,11 @@ class CountryResource extends JsonResource
             "id" => $this->id,
             "abbr" => $this->abbr,
             "countryName" => $this->country_name,
-            "region_id" => $this->region_id
+            "region_id" => $this->region_id,
+            "region" => [
+                "regionName" => $this->regions->region_name,
+            ]
+            //'regions' => RegionResource::collection($this->whenLoaded('regions')),
         ];
     }
 }

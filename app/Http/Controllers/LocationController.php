@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Country;
 use App\Models\Location;
+use Illuminate\Http\Request;
+use App\Traits\ApiResponseHeader;
+use App\Http\Controllers\Controller;
 use App\Http\Resources\LocationResource;
 use App\Http\Resources\LocationCollection;
-use App\Traits\ApiResponseHeader;
+
 class LocationController extends Controller
 {
     use ApiResponseHeader;
@@ -17,7 +19,19 @@ class LocationController extends Controller
     public function index()
     {
         //$filter = new CustomerQuery();
-        return new LocationCollection(Location::paginate(15));
+        
+        $locations = Location::all();
+        $countries = Country::all();
+
+        return [
+            "locations" => [
+                $locations,
+            ],
+            "countries" => [
+                $countries
+            ]
+        ];
+        return new LocationCollection($locations);
     }
 
     /**
@@ -35,6 +49,7 @@ class LocationController extends Controller
     {
         //return $this->sendResponse(Employees::find($id)->toArray());
         return new LocationResource(Location::find($id));
+        
     }
 
     /**

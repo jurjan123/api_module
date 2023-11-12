@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Country;
 use App\Http\Resources\CountryResource;
-use App\Http\Resources\CountryCollection;
+use App\Http\Resources\CountryRegionCollection;
 use App\Traits\ApiResponseHeader;
 class CountryController extends Controller
 {
@@ -14,10 +14,13 @@ class CountryController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //$filter = new CustomerQuery();
-        return new CountryCollection(Country::paginate(15));
+
+        $countries = Country::with('regions')->paginate(15);
+      
+        return new CountryRegionCollection($countries);
+
     }
 
     /**
@@ -25,7 +28,7 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -51,5 +54,9 @@ class CountryController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+
+    public function search(Request $request){
+
     }
 }
