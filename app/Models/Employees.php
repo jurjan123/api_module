@@ -23,4 +23,8 @@ class Employees extends Model
         "manager_id",
         "department_id"
     ];
+
+    public function dependants(){
+        return $this->hasMany(Dependant::class);
+    }
 }

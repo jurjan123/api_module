@@ -7,6 +7,7 @@ use App\Models\Location;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponseHeader;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CountryCollection;
 use App\Http\Resources\LocationResource;
 use App\Http\Resources\LocationCollection;
 
@@ -23,15 +24,18 @@ class LocationController extends Controller
         $locations = Location::all();
         $countries = Country::all();
 
-        return [
+        /*return [
             "locations" => [
                 $locations,
             ],
             "countries" => [
                 $countries
             ]
+        ];*/
+        return [
+            "locations" => new LocationCollection($locations),
+            "countries" => new CountryCollection($countries)
         ];
-        return new LocationCollection($locations);
     }
 
     /**

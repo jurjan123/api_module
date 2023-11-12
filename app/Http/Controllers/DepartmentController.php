@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Models\Region;
+use App\Models\Country;
+use App\Models\Location;
+use App\Models\Employees;
 use App\Models\Department;
-use App\Http\Resources\DepartmentResource;
-use App\Http\Resources\DepartmentCollection;
+use Illuminate\Http\Request;
 use App\Traits\ApiResponseHeader;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\RegionCollection;
+use App\Http\Resources\CountryCollection;
+use App\Http\Resources\DepartmentResource;
+use App\Http\Resources\EmployeeCollection;
+use App\Http\Resources\LocationCollection;
+use App\Http\Resources\DepartmentCollection;
+
 class DepartmentController extends Controller
 {
     use ApiResponseHeader;
@@ -16,8 +25,16 @@ class DepartmentController extends Controller
      */
     public function index()
     {
-        //$filter = new CustomerQuery();
-        return new DepartmentCollection(Department::paginate(15, ));
+        
+        return [
+            "departments" => new DepartmentCollection(Department::all()),
+            "locations" => new LocationCollection(Location::all()),
+            "countries" => new CountryCollection(Country::all()),
+            "regions" => new RegionCollection(Region::all()),
+            "employees" => new EmployeeCollection(Employees::all())
+        ];
+
+
     }
 
     /**

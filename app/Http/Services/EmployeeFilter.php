@@ -2,6 +2,7 @@
 
 namespace App\Http\Services;
 
+use App\Models\Employees;
 use Illuminate\Http\Request;
 
 class EmployeeFilter {
@@ -34,24 +35,29 @@ class EmployeeFilter {
     ];
 
     public function transform(Request $request){
-        $eloQuery = [];
+        $query = Employees::query();
 
-        foreach($this->safeParms as $parm => $operators){
-            $query = $request->query($parm);
-            if(isset($query)){
-                continue;
-            }
-
-            $column = $this->columnMap[$parm] ?? $parm;
-
-            foreach($operators as $operator){
-                if(isset($query[$operator])){
-                    $eloQuery[] = [$column, $this->operatorMap[$operator], $query[$operator]];
-                }
-            }
+        if($request->has("id")){
+            $query->where("id", $request->input("id"))->get();
         }
 
-        return $eloQuery;
+        if($request->has("lastName")){
+            $query->where("last_name", $request->input("lastName"))->get();
+        }
+
+        if($request->has("hireDate")){
+            $query->where("hire_date", $request->input("hireDate"))->get();
+        }
+
+        if($request->has("department_id")){
+            $query->where("department_id", $request->input("department_id"))->get();
+        }
+        if($request->has("manager_id")){
+            $query->where("manager_id", $request->input("manager_id"))->get();
+        }
+        $data = $query->get();
+       
+        return $data;
     }
 
 

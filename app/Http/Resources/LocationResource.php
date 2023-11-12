@@ -18,11 +18,11 @@ class LocationResource extends JsonResource
     {
         
             return [
-                
                 "streetAddress" => $this->street_address,
                 "postalCode" => $this->postal_code,
                 "city" => $this->city,
                 "stateProvince" => $this->state_province
+                
             ];
         
         

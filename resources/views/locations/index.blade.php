@@ -16,7 +16,9 @@
     </head>
     <body class="antialiased bg-blue-500 ">
         <x-side-bar-component></x-side-bar-component>
-          <div class="grid grid-cols-5 min-h-fit w-4/5 gap-x-6  ml-80    ">
+
+
+          <div class="grid grid-cols-5 min-h-fit w-4/5 gap-x-6 mt-12  ml-80    ">
            
             
                 <div class="shadow-lg rounded-lg overflow-hidden col-span-5">
@@ -24,16 +26,12 @@
                     <table class="min-w-full  divide-y divide-gray-200 ">
                       <thead>
                         <tr>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Voornaam</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Achternaam</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Email</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Telefoonnummer</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Huurdatum</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Salaris</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">job_id</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">manager_id</th>
-                          <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">department_id</th>
-                        </tr>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Straatadres</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Postcode</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Stad</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">StaatProvincie</th>
+                           
+                          </tr>
                       </thead>
                       <tbody class="bg-white divide-y divide-gray-200" id="jur">
                        
@@ -48,6 +46,6 @@
          
         
           <script src="{{url("sidebar.js")}}"></script>
-          <script src="{{url("fetchEmployees.js")}}"></script>
+          <script src="{{url("fetchLocations.js")}}"></script>
     </body>
 </html>

@@ -8,7 +8,7 @@ use App\Traits\ApiResponseHeader;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Http;
 use App\Http\Resources\CountryResource;
-use App\Http\Resources\CountryRegionCollection;
+use App\Http\Resources\CountryCollection;
 
 class CountryController extends Controller
 {
@@ -21,7 +21,7 @@ class CountryController extends Controller
 
         $countries = Country::with('regions')->paginate(15);
         
-        return new CountryRegionCollection($countries);
+        return new CountryCollection($countries);
 
     }
 

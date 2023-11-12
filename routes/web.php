@@ -18,3 +18,14 @@ Route::get('/employees', function () {
     
     return view('employees.index');
 })->name("employees.index");
+
+
+Route::get('/jobs', function () {
+    
+    return view('jobs.index');
+})->name("jobs.index");
+
+Route::get('/locations', function () {
+    
+    return view('locations.index');
+})->name("locations.index");

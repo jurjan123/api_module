@@ -17,7 +17,7 @@ class JobController extends Controller
     public function index()
     {
         //$filter = new CustomerQuery();
-        return new JobCollection(Job::paginate(15));
+        return new JobCollection(Job::all());
     }
 
     /**

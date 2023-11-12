@@ -3,13 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Models\Country;
+use App\Models\Dependant;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use App\Traits\ApiResponseHeader;
 
-use App\Http\Resources\EmployeeResource;
-use App\Http\Resources\EmployeeCollection;
 use App\Http\Services\EmployeeFilter;
+use App\Http\Resources\EmployeeResource;
+use App\Http\Resources\DependantResource;
+use App\Http\Resources\EmployeeCollection;
+use App\Http\Resources\DependantCollection;
 
 class EmployeeController extends Controller
 {
@@ -20,12 +23,19 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         $filter = new EmployeeFilter();
-        $queryItems = $filter->transform($request);
-        if(count($queryItems) == 0){
-            return new EmployeeCollection(Employees::paginate(15));
+       
+        if(empty($request->query())){
+            return [
+                "employees" => new EmployeeCollection(Employees::paginate(15)),
+                "dependants" => new DependantCollection(Dependant::paginate(15))
+            ]; 
         } else{
-            return new EmployeeCollection(Employees::where($queryItems)->paginate(15));
+           $items = $filter->transform($request);
+           return new EmployeeCollection($items);
         }
+        
+        
+        
     }
 
     /**
