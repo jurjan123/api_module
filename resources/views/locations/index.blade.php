@@ -18,7 +18,7 @@
         <x-side-bar-component></x-side-bar-component>
 
 
-          <div class="grid grid-cols-5 min-h-fit w-4/5 gap-x-6 mt-12  ml-80    ">
+          <div class="grid grid-cols-5 min-h-fit w-4/5 gap-x-6 mt-12  ml-72">
            
             
                 <div class="shadow-lg rounded-lg overflow-hidden col-span-5">

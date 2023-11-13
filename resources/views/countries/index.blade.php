@@ -26,9 +26,9 @@
                     <table class="min-w-full  divide-y divide-gray-200 ">
                       <thead>
                         <tr>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Baan naam</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Minimale salaris</th>
-                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Maximale salaris</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Afkorting</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">Land naam</th>
+                            <th class="px-6 py-3 bg-gray-50 text-left text-xs leading-4 font-medium text-gray-500 uppercase tracking-wider">regio_id</th>
                            
                           </tr>
                       </thead>
@@ -45,6 +45,6 @@
          
         
           <script src="{{url("sidebar.js")}}"></script>
-          <script src="{{url("fetchJobs.js")}}"></script>
+          <script src="{{url("fetchCountries.js")}}"></script>
     </body>
 </html>

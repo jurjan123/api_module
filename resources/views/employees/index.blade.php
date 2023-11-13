@@ -16,10 +16,10 @@
     </head>
     <body class="antialiased bg-blue-500 ">
         <x-side-bar-component></x-side-bar-component>
-          <div class="grid grid-cols-5 min-h-fit w-4/5 gap-x-6  ml-80    ">
+          <div class=" min-h-fit min-w-fit  ml-72">
            
             
-                <div class="shadow-lg rounded-lg overflow-hidden col-span-5">
+                <div class="shadow-lg rounded-lg overflow-hidden ">
                  
                     <table class="min-w-full  divide-y divide-gray-200 ">
                       <thead>

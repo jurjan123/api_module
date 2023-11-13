@@ -29,3 +29,7 @@ Route::get('/locations', function () {
     
     return view('locations.index');
 })->name("locations.index");
+
+Route::get("/countries", function(){
+    return view("countries.index");
+})->name("countries.index");

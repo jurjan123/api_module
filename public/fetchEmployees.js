@@ -20,16 +20,14 @@ fetch(apiURL, { headers })
   .then(data => {
 
    const employeeValues = Object.values(data)
-   
+   employeeValues.pop();
+   console.log(employeeValues)
    HtmlContent = ''
    
    employeeValues.forEach(item => {
+    console.log(item[0])
    
     item.forEach(item => {
-      if(item.email == undefined){
-        return
-
-      }else{
       
         HtmlContent +=  `
         <tr>
@@ -69,7 +67,7 @@ fetch(apiURL, { headers })
           </tr>
           `
       }
-    })
+    )
 
    
    })

@@ -2,7 +2,7 @@
     <i class="bi bi-filter-left px-2 bg-gray-900 rounded-md"></i>
   </span>
   <div class="sidebar fixed top-0 bottom-0 lg:left-0 left-[-300px] duration-1000
-    p-2 w-[300px] overflow-y-auto text-center bg-gray-900 shadow h-screen">
+    p-2 w-[270px] overflow-y-auto text-center bg-gray-900 shadow h-screen">
     <div class="text-gray-100 text-xl">
       <div class="p-2.5 mt-1 flex items-center rounded-md ">
         <i class="bi bi-app-indicator px-2 py-1 bg-blue-600 rounded-md"></i>
@@ -18,30 +18,31 @@
           <input class="text-[15px] ml-4 w-full bg-transparent focus:outline-none" placeholder="Search" />
         </div>
 
-        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-          <i class="bi bi-house-door-fill"></i>
-          <span class="text-[15px] ml-4 text-gray-200">Home</span>
-        </div>
-        <a href="{{route("employees.index")}}">
-        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer @if(Route::is("employees.index")) bg-blue-600  @else hover:bg-blue-600 @endif ">
-          <i class="bi bi-bookmark-fill"></i>
-          <span class="text-[15px] ml-4 text-gray-200">Werknemers</span>
-        </div></a>
+      
         <a href="{{route("jobs.index")}}">
         <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer @if(Route::is("jobs.index")) bg-blue-600 @else   hover:bg-blue-600" @endif>
           <i class="bi bi-bookmark-fill"></i>
           <span class="text-[15px] ml-4 text-gray-200">Banen</span>
         </div></a>
+
+        <a href="{{route("countries.index")}}">
+          <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer @if(Route::is("countries.index")) bg-blue-600 @else hover:bg-blue-600" @endif>
+            <i class="bi bi-bookmark-fill"></i>
+            <span class="text-[15px] ml-4 text-gray-200">Landen</span>
+          </div></a>
+  
         <a href="{{route("locations.index")}}">
         <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer @if(Route::is("locations.index")) bg-blue-600 @else hover:bg-blue-600 @endif">
           <i class="bi bi-bookmark-fill"></i>
           <span class="text-[15px] ml-4 text-gray-200">Locaties</span>
         </div>
       </a>
-        <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer  hover:bg-blue-600">
-          <i class="bi bi-bookmark-fill"></i>
-          <span class="text-[15px] ml-4 text-gray-200">Landen</span>
-        </div>
+      
+        <a href="{{route("employees.index")}}">
+          <div class="p-2.5 mt-2 flex items-center rounded-md px-4 duration-300 cursor-pointer @if(Route::is("employees.index")) bg-blue-600  @else hover:bg-blue-600 @endif ">
+            <i class="bi bi-bookmark-fill"></i>
+            <span class="text-[15px] ml-4 text-gray-200">Werknemers</span>
+          </div></a>
         <hr class="my-4 text-gray-600">
         
        

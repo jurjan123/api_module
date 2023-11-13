@@ -43,7 +43,19 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return Employees::create([
+            "first_name" => "jur",
+            "last_name" => "jansonius",
+            "phone_number" => "15660810",
+            "email" => "jansoniusjur@gmail.com",
+            "hire_date" => "13-11-2023",
+            "salary" => "69.69",
+            "job_id" => 4,
+            "manager_id" => 100,
+            "department" => 9
+        ]);
+
+        return response()->json(['message' => 'Customer created successfully'], 201);
     }
 
     /**
@@ -66,8 +78,9 @@ class EmployeeController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Employees $id)
     {
-        //
+        $id->delete();
+        return back();
     }
 }
